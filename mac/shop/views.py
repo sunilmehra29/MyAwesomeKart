@@ -3,14 +3,14 @@ from django.http import HttpResponse
 from .models import Product, Contact
 from math import ceil
 def index(request):
-    # products = Product.objects.all()
-    # print(products)
-    # n = len(products)
-    # nslides = n//4 + ceil((n/4) - (n//4))
-    # # params = {'no_of_slides': nslides, 'range': range(1,nslides), 'product': products}
-    # allProds = [[products, range(1, nslides), nslides],
-    #             [products, range(1, nslides), nslides]]
-    # params = {'allProds': allProds}
+    products = Product.objects.all()
+    print(products)
+    n = len(products)
+    nslides = n//4 + ceil((n/4) - (n//4))
+    # params = {'no_of_slides': nslides, 'range': range(1,nslides), 'product': products}
+    allProds = [[products, range(1, nslides), nslides],
+                [products, range(1, nslides), nslides]]
+    params = {'allProds': allProds}
 
     allProds = []
     catprods = Product.objects.values('category', 'id')
